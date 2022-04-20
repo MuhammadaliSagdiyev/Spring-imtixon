@@ -30,4 +30,9 @@ public class AuthorResource {
     public ResponseDTO<AuthorDTO> updateAuthor(@RequestBody AuthorDTO authorDTO){
         return authorServise.updateAuthor(authorDTO);
     }
+
+    @DeleteMapping("/deleteAuthor")
+    public ResponseDTO<AuthorDTO> deleteAuthor(@RequestBody AuthorDTO authorDTO){
+        return authorServise.deleteAuthor(authorDTO);
+    }
 }

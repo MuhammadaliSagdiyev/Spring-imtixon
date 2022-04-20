@@ -69,4 +69,19 @@ public class AuthorServise {
             return new ResponseDTO<>(false, -5, "ERROR", null);
         }
     }
+
+    public ResponseDTO<AuthorDTO> deleteAuthor(AuthorDTO authorDTO) {
+        if(authorDTO.getId()==null){
+            return new ResponseDTO<>(false, -2, "ID null bo'lishi mumkin emas!", authorDTO);
+        }
+
+        if(authorRepository.getAuthorById(authorDTO.getId()) == null){
+            return new ResponseDTO<>(false, -3, "Bu ID li avtor topilmadi!", authorDTO);
+        }
+
+        Author author = AuthorMapping.toEntity(authorDTO);
+        authorRepository.delete(author);
+
+        return new ResponseDTO<>(true, 0, "OK", authorDTO);
+    }
 }

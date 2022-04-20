@@ -17,4 +17,9 @@ public class PublisherMapping {
                 publisherDTO.getAddress_id());
     }
 
+    public static void setEntity(Publisher publisher, PublisherDTO publisherDTO) {
+        publisher.setId(publisherDTO.getId());
+        publisher.setName(publisherDTO.getName());
+        publisher.setAddress_id(publisherDTO.getAddress_id());
+    }
 }
